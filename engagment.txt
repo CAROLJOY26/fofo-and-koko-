@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Engagement Invitation</title>
+</head>
+<body>
+
+<h2>You are invited 💍</h2>
+
+<input id="name" placeholder="Your Name"><br><br>
+<input id="guests" type="number" placeholder="Number of Guests"><br><br>
+<textarea id="message" placeholder="Message"></textarea><br><br>
+
+<button onclick="send()">Submit</button>
+
+<script>
+function send() {
+  fetch("https://script.google.com/macros/s/AKfycbz9WKxQhTKs7xd18BHNfqCPvmpa5YFd9vpwUZ_ygXotqHNJpbli8Dwe_hQRKugB573S/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      name: document.getElementById("name").value,
+      guests: document.getElementById("guests").value,
+      message: document.getElementById("message").value
+    })
+  })
+  .then(() => alert("Thank you ❤️"));
+}
+</script>
+
+</body>
+</html>
